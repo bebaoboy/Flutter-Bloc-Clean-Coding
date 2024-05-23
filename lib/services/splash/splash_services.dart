@@ -1,6 +1,7 @@
 import 'dart:async'; // Importing dart:async for asynchronous operations
 
 import 'package:flutter/material.dart'; // Importing Flutter material library
+import 'package:go_router/go_router.dart';
 
 import '../../../configs/routes/routes_name.dart'; // Importing routes names for navigation
 import '../session_manager/session_controller.dart'; // Importing session controller for managing user session
@@ -16,18 +17,18 @@ class SplashServices {
       if (SessionController.isLogin ?? false) {
         Timer(
           const Duration(seconds: 2),
-          () => Navigator.pushNamedAndRemoveUntil(context, RoutesName.home, (route) => false),
+          () => context.go(RoutesName.home),
         );
       } else {
         Timer(
           const Duration(seconds: 2),
-          () => Navigator.pushNamedAndRemoveUntil(context, RoutesName.login, (route) => false),
+          () => context.go(RoutesName.login),
         );
       }
     }).onError((error, stackTrace) {
       Timer(
         const Duration(seconds: 2),
-        () => Navigator.pushNamedAndRemoveUntil(context, RoutesName.login, (route) => false),
+          () => context.go(RoutesName.login),
       );
     });
   }

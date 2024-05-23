@@ -1,6 +1,7 @@
 import 'package:bloc_clean_coding/utils/extensions/flush_bar_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../bloc/login_bloc/login_bloc.dart';
 import '../../../configs/routes/routes_name.dart';
@@ -22,7 +23,7 @@ class SubmitButton extends StatelessWidget {
         }
 
         if (state.postApiStatus == PostApiStatus.success) {
-          Navigator.pushNamedAndRemoveUntil(context, RoutesName.home, (route) => false);
+          context.go(RoutesName.home);
         }
       },
       child: BlocBuilder<LoginBloc, LoginStates>(

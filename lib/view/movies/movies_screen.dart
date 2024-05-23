@@ -3,7 +3,7 @@ import 'package:bloc_clean_coding/data/response/response.dart';
 import 'package:bloc_clean_coding/data/response/status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bloc_clean_coding/utils/language.dart';
 
 import '../../configs/components/network_image_widget.dart';
 import '../../main.dart';
@@ -39,7 +39,7 @@ class _HomeViewState extends State<MoviesScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(AppLocalizations.of(context)!.popularShows),
+        title: Text(Lang.g(context).popularShows),
         actions: const [
           LogoutButtonWidget(), // Widget for logout button
           SizedBox(
@@ -50,7 +50,8 @@ class _HomeViewState extends State<MoviesScreen> {
       body: BlocProvider(
         create: (_) => moviesBloc..add(MoviesFetch()),
         child: BlocBuilder<MoviesBloc, MoviesState>(
-          buildWhen: (previous, current) => previous.moviesList != current.moviesList,
+          buildWhen: (previous, current) =>
+              previous.moviesList != current.moviesList,
           builder: (BuildContext context, state) {
             switch (state.moviesList.status) {
               case Status.loading:
@@ -60,7 +61,7 @@ class _HomeViewState extends State<MoviesScreen> {
               case Status.completed:
                 if (state.moviesList.data == null) {
                   // Widget for displaying no data found message
-                  return Text(AppLocalizations.of(context)!.noDataFound);
+                  return Text(Lang.g(context).noDataFound);
                 }
                 final movieList = state.moviesList.data!;
 
@@ -74,9 +75,12 @@ class _HomeViewState extends State<MoviesScreen> {
                             borderRadius: 5,
                             imageUrl: tvShow.imageThumbnailPath.toString(),
                           ), // Widget for displaying network image
-                          title: Text(tvShow.name.toString()), // Title of the movie
-                          subtitle: Text(tvShow.network.toString()), // Network of the movie
-                          trailing: Text(tvShow.status.toString()), // Status of the movie
+                          title: Text(
+                              tvShow.name.toString()), // Title of the movie
+                          subtitle: Text(tvShow.network
+                              .toString()), // Network of the movie
+                          trailing: Text(
+                              tvShow.status.toString()), // Status of the movie
                         ),
                       );
                     });

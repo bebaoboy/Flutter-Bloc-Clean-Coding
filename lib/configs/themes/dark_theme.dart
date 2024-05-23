@@ -4,8 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'themes.dart';
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        // Use PredictiveBackPageTransitionsBuilder to get the predictive back route transition!
+        TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      },
+    ),
     appBarTheme: AppBarTheme(
-        toolbarTextStyle: ThemeData.light().textTheme.displayMedium!.copyWith(fontFamily: ThemeConfig.pangramRegular, color: Colors.white, fontWeight: FontWeight.w500),
+        toolbarTextStyle: ThemeData.light().textTheme.displayMedium!.copyWith(
+            fontFamily: ThemeConfig.pangramRegular,
+            color: Colors.white,
+            fontWeight: FontWeight.w500),
         iconTheme: const IconThemeData(
           color: Colors.white,
         )),
@@ -34,7 +43,8 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
           ),
         ),
     radioTheme: RadioThemeData(
-      fillColor: WidgetStateColor.resolveWith((states) => Colors.white.withOpacity(.3)),
+      fillColor: WidgetStateColor.resolveWith(
+          (states) => Colors.white.withOpacity(.3)),
     ),
     colorScheme: const ColorScheme.dark().copyWith(
         secondary: const Color(0xff73777a),
@@ -46,6 +56,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
         surface: const Color(0xff202934),
         primaryContainer: const Color(0xff2d3236),
         onPrimaryContainer: const Color(0xff5a5f62)),
-    progressIndicatorTheme: const ProgressIndicatorThemeData(linearTrackColor: Colors.white, color: ThemeConfig.primaryColor),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+        linearTrackColor: Colors.white, color: ThemeConfig.primaryColor),
     primaryColor: ThemeConfig.primaryColor,
     scaffoldBackgroundColor: ThemeConfig.darkBackColor);

@@ -5,8 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'themes.dart';
 
 ThemeData lightTheme = ThemeData.light().copyWith(
+  pageTransitionsTheme: const PageTransitionsTheme(
+    builders: {
+      // Use PredictiveBackPageTransitionsBuilder to get the predictive back route transition!
+      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+    },
+  ),
   appBarTheme: const AppBarTheme(
-      systemOverlayStyle: SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+      systemOverlayStyle:
+          SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
       iconTheme: IconThemeData(
         color: Colors.black,
       )),
@@ -21,7 +28,8 @@ ThemeData lightTheme = ThemeData.light().copyWith(
       onPrimaryContainer: const Color(0xffd8d8da)),
   textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.black),
   scaffoldBackgroundColor: Colors.white,
-  progressIndicatorTheme: const ProgressIndicatorThemeData(linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.primaryColor),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
+      linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.primaryColor),
   primaryColor: ThemeConfig.primaryColor,
   radioTheme: RadioThemeData(
     fillColor: WidgetStateColor.resolveWith(

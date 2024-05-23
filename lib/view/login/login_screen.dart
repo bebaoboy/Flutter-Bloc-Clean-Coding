@@ -7,7 +7,7 @@ import 'widget/widgets.dart'; // Importing custom widget components
 
 /// A widget representing the login screen of the application.
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _loginBlocs = LoginBloc(authApiRepository: getIt());
   }

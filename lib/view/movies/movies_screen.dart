@@ -11,7 +11,7 @@ import 'widget/widgets.dart';
 
 /// A widget representing the screen displaying a list of movies.
 class MoviesScreen extends StatefulWidget {
-  const MoviesScreen({Key? key}) : super(key: key);
+  const MoviesScreen({super.key});
 
   @override
   State<MoviesScreen> createState() => _HomeViewState();
@@ -30,7 +30,6 @@ class _HomeViewState extends State<MoviesScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     moviesBloc.close();
     super.dispose();
   }

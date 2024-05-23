@@ -7,7 +7,7 @@ import '../../../configs/components/internet_exception_widget.dart'; // Importin
 
 /// A widget for displaying error messages related to movies.
 class MoviesErrorWidget extends StatelessWidget {
-  const MoviesErrorWidget({Key? key}) : super(key: key);
+  const MoviesErrorWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

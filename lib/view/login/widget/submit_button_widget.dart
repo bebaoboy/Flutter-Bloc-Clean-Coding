@@ -8,8 +8,9 @@ import '../../../utils/enums.dart';
 
 /// A widget representing the submit button for the login form.
 class SubmitButton extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final formKey;
-  const SubmitButton({Key? key, required this.formKey}) : super(key: key);
+  const SubmitButton({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {

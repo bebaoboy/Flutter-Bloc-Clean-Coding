@@ -15,8 +15,8 @@ ThemeData lightTheme = ThemeData.light().copyWith(
       primary: const Color(0xff0F0425),
       onPrimary: const Color(0xff9694B8),
       outline: const Color(0xfff0f0f0),
-      onBackground: const Color(0xfff6f8f8),
-      background: const Color(0xffDCE8E8),
+      onSurface: const Color(0xfff6f8f8),
+      surface: const Color(0xffDCE8E8),
       primaryContainer: Colors.white,
       onPrimaryContainer: const Color(0xffd8d8da)),
   textSelectionTheme: const TextSelectionThemeData(cursorColor: Colors.black),
@@ -24,7 +24,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   progressIndicatorTheme: const ProgressIndicatorThemeData(linearTrackColor: Color(0xffECEAEA), color: ThemeConfig.primaryColor),
   primaryColor: ThemeConfig.primaryColor,
   radioTheme: RadioThemeData(
-    fillColor: MaterialStateColor.resolveWith(
+    fillColor: WidgetStateColor.resolveWith(
       (states) => Colors.black.withOpacity(.4),
     ),
   ),

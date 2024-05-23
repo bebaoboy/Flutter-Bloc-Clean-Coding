@@ -23,7 +23,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}); // Constructor for MyApp widget
+  const MyApp({super.key}); // Constructor for MyApp widget
 
   // This widget is the root of your application.
   @override

@@ -6,7 +6,7 @@ import '../../../bloc/login_bloc/login_bloc.dart';
 
 /// A widget representing the password input field.
 class PasswordInput extends StatelessWidget {
-  const PasswordInput({Key? key, required this.focusNode}) : super(key: key);
+  const PasswordInput({super.key, required this.focusNode});
 
   final FocusNode focusNode;
 

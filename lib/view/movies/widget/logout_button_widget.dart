@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importing app l
 
 /// A widget representing the logout button.
 class LogoutButtonWidget extends StatelessWidget {
-  const LogoutButtonWidget({Key? key}) : super(key: key);
+  const LogoutButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

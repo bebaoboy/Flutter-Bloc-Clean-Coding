@@ -7,7 +7,7 @@ import '../../../bloc/login_bloc/login_bloc.dart';
 
 /// A widget representing the email input field.
 class EmailInput extends StatelessWidget {
-  const EmailInput({Key? key, required this.focusNode}) : super(key: key);
+  const EmailInput({super.key, required this.focusNode});
 
   final FocusNode focusNode;
 

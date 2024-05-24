@@ -48,10 +48,11 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
     ),
     colorScheme: const ColorScheme.dark().copyWith(
         secondary: const Color(0xff73777a),
-        primary: Colors.white,
+        primary: const Color.fromARGB(255, 187, 187, 187),
         onPrimary: const Color(0xffA0A0A0),
         outline: Colors.black,
-        onSurface: const Color(0xff202934),
+        onSurface: Colors.white60,
+        // onSurface: const Color(0xff202934),
         brightness: Brightness.dark,
         surface: const Color(0xff202934),
         primaryContainer: const Color(0xff2d3236),

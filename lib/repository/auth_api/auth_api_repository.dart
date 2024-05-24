@@ -6,4 +6,9 @@ abstract class AuthApiRepository {
   ///
   /// Returns a [UserModel] representing the user data if the login is successful.
   Future<UserModel> loginApi(dynamic data);
+
+  /// Sends a register request to the authentication API with the provided [data].
+  ///
+  /// Returns a [UserModel] representing the user data if the login is successful.
+  Future<UserModel> registerApi(dynamic data);
 }

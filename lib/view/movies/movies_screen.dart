@@ -1,9 +1,12 @@
+import 'package:animations/animations.dart';
 import 'package:bloc_clean_coding/bloc/movies_bloc/movies_bloc.dart';
+import 'package:bloc_clean_coding/configs/routes/routes_name.dart';
 import 'package:bloc_clean_coding/data/response/response.dart';
 import 'package:bloc_clean_coding/data/response/status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_clean_coding/utils/language.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../configs/components/network_image_widget.dart';
 import '../../main.dart';
@@ -69,7 +72,7 @@ class _HomeViewState extends State<MoviesScreen> {
                     itemCount: movieList.tvShow.length,
                     itemBuilder: (context, index) {
                       final tvShow = movieList.tvShow[index];
-                      return Card(
+                      final tvCardWidget = Card(
                         child: ListTile(
                           leading: NetworkImageWidget(
                             borderRadius: 5,
@@ -83,6 +86,22 @@ class _HomeViewState extends State<MoviesScreen> {
                               tvShow.status.toString()), // Status of the movie
                         ),
                       );
+                      return tvShow.status == "Running"
+                          ? OpenContainer(
+                              closedColor: Colors.transparent,
+                              openBuilder: (context, action) => Scaffold(
+                                appBar: AppBar(
+                                  title: Text(tvShow.name.toString()),
+                                ),
+                              ),
+                              closedBuilder: (context, action) => tvCardWidget,
+                            )
+                          : InkWell(
+                              onTap: () {
+                                context.push(RoutesName.login);
+                              },
+                              child: tvCardWidget,
+                            );
                     });
               default:
                 return const SizedBox();

@@ -11,4 +11,13 @@ class AuthMockApiRepository implements AuthApiRepository {
     var responseData = {'token': 'a23z345xert'};
     return UserModel.fromJson(responseData);
   }
+  
+  @override
+  Future<UserModel> registerApi(dynamic data) async {
+    // Simulate a delay to mimic network latency
+    await Future.delayed(const Duration(seconds: 2));
+    // Mock response data
+    var responseData = {'token': 'a23z345xert'};
+    return UserModel.fromJson(responseData);
+  }
 }

@@ -16,4 +16,14 @@ class AuthHttpApiRepository implements AuthApiRepository {
     dynamic response = await _apiServices.postApi(AppUrl.loginEndPint, data);
     return UserModel.fromJson(response);
   }
+
+  /// Sends a register request to the authentication API with the provided [data].
+  ///
+  /// Returns a [UserModel] representing the user data if the login is successful.
+  @override
+  Future<UserModel> registerApi(dynamic data) async {
+    dynamic response = await _apiServices.postApi(AppUrl.loginEndPint, data);
+    return UserModel.fromJson(response);
+  }
+
 }

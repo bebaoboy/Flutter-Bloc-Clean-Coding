@@ -9,7 +9,7 @@ class Routes {
     initialLocation: RoutesName.splash,
     routes: [
       GoRoute(
-        path: '/',
+        path: RoutesName.home,
         builder: (context, state) => const MoviesScreen(),
       ),
       GoRoute(

@@ -1,6 +1,6 @@
 // Importing necessary packages and files
 import 'package:bloc_clean_coding/repository/auth_api/auth_api_repository.dart';
-import 'package:bloc_clean_coding/repository/auth_api/auth_http_api_repository.dart';
+import 'package:bloc_clean_coding/repository/auth_api/auth_mock_api_repository.dart';
 import 'package:bloc_clean_coding/repository/movies_api/movies_api_repository.dart';
 import 'package:bloc_clean_coding/repository/movies_api/movies_http_api_repository.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height),
+        designSize: Size(MediaQuery.of(context).size.width,
+            MediaQuery.of(context).size.height),
         minTextAdapt: true,
         splitScreenMode: true,
         // Use builder only if you need to use library outside ScreenUtilInit context
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp.router(
             // Material app configuration
             title: 'Flutter Demo',
-            themeMode: ThemeMode.dark, // Setting theme mode to dark
+            themeMode: ThemeMode.system, // Setting theme mode to dark
             theme: lightTheme, // Setting light theme
             darkTheme: darkTheme, // Setting dark theme
             localizationsDelegates: const [
@@ -61,8 +62,10 @@ class MyApp extends StatelessWidget {
 
 // Function for initializing service locator
 void servicesLocator() {
-  getIt.registerLazySingleton<AuthApiRepository>(() =>
-      AuthHttpApiRepository()); // Registering AuthHttpApiRepository as a lazy singleton for AuthApiRepository
-  getIt.registerLazySingleton<MoviesApiRepository>(() =>
-      MoviesHttpApiRepository()); // Registering MoviesHttpApiRepository as a lazy singleton for MoviesApiRepository
+  // Registering AuthHttpApiRepository as a lazy singleton for AuthApiRepository
+  // getIt.registerLazySingleton<AuthApiRepository>(() => AuthHttpApiRepository());
+  getIt.registerLazySingleton<AuthApiRepository>(() => AuthMockApiRepository());
+  // Registering MoviesHttpApiRepository as a lazy singleton for MoviesApiRepository
+  getIt.registerLazySingleton<MoviesApiRepository>(
+      () => MoviesHttpApiRepository());
 }
